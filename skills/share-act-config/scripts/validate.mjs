@@ -55,7 +55,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const args=process.argv.slice(2),get=k=>args[args.indexOf(k)+1];
   if(!args[0]||!args.includes('--context'))throw Error('usage: validate.mjs FILE --context CONTEXT.json [--source ANDROID_SOURCE]');
   const bytes=fs.readFileSync(args[0]);if(bytes.length>1024*1024)throw Error('file_too_large');
-  const text=new TextDecoder('utf-8',{fatal:true}).decode(bytes),context=parseStrict(fs.readFileSync(get('--context'),'utf8'));
+  const text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes),context=parseStrict(fs.readFileSync(get('--context'),'utf8'));
   const report=validate(text,context,{source:sourceRoot(args.includes('--source')?get('--source'):null)});
   console.log(JSON.stringify(report,null,2));if(!report.ok)process.exitCode=1;
  }catch(e){fail(e.message);}

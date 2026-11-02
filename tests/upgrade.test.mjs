@@ -53,3 +53,11 @@ test('oracle metadata and approval tampering fail closed in an isolated skill co
   assert.throws(()=>contract.gate({contract_id:m.contract_id}),/oracle_build_stale_or_tampered/);
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 });
+
+test('validation identity is independent of embedded wording but tracks actual import code',async()=>{
+ const {validationIdentity}=await import('../skills/share-act-config/scripts/contract.mjs');
+ const first={'app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt':'a','app/src/main/java/shareact/android/ui/rules/RuleConfigurationDiagnostics.kt':'d'};
+ const second={...first,'app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt':'b'};
+ assert.equal(validationIdentity(first),validationIdentity(second));
+ assert.notEqual(validationIdentity(first),validationIdentity({...first,'app/src/main/java/shareact/android/ui/rules/RuleConfigurationDiagnostics.kt':'changed'}));
+});

@@ -1,6 +1,6 @@
 # Envelope contract
 
-The supported snapshot is identified by `contracts/current.json`. The compiled App codec, not this prose or a hand-written JSON Schema, is authoritative for structural decoding.
+The supported snapshot is identified by `contracts/current.json`. The compiled App diagnostics/import entrypoint and codec, not this prose or a hand-written JSON Schema, are authoritative for structural decoding.
 
 ## Required canonical recipe
 
@@ -56,3 +56,9 @@ Import limit: 1 MiB. Subject limit: 512 Unicode code points. Detailed constraint
 ## Connection context
 
 The offline fallback supplies synthetic Grok connection metadata solely to exercise the actual decoder. It does not prove a real Bot exists. If an actual `connection` object is supplied in the separate context, only non-secret App metadata is allowed: Grok adapter, POST, one Authorization secret reference, empty query, null custom body and no retries. The validator does not resolve secret references or call that endpoint.
+
+## Serialization and delivery gate
+
+JSON string newlines must be escaped as `\n`, and quotes inside strings must be escaped as `\"`. URL fields contain plain URL strings, never `[label](url)`. A Markdown link can be ordinary instruction text, but it must still be correctly JSON-escaped. Do not append chat links or comments after the root object.
+
+Run `scripts/finalize.mjs` and attach the resulting file unchanged. A prior validator result does not cover a subsequently reformatted chat message. The file receipt binds the exact configuration and context bytes; it is separate from the configuration envelope.

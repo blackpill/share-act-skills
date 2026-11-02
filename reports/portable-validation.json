@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
-  "configuration_sha256": "36d02ef0cf52d6090b8aa03b85800dd75ba133a24c997cffc7801613d360489b",
-  "context_sha256": "54825d70480ccf5949125db6a015595f53d40ea4af6935c1114126cf02400f4d",
+  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
+  "configuration_sha256": "52e5e4ac017df6d51794911d899b319b0a94a81a3223491a61b87173db73bbd4",
+  "context_sha256": "e9195485e04e504aaaa1c6a1020bfb30f4912f7de0032887089ba594b781dc1d",
   "oracle": {
     "codec_accepted": true,
     "sample_matches": true,
@@ -13,24 +13,29 @@
     "normalized": {
       "envelope_version": 1,
       "rule": {
-        "id": "food-calories",
+        "id": "podcast-notion",
         "version": 1,
         "position": 0,
-        "name": "food calories",
+        "name": "podcast notion",
         "groups": [
           [
             {
               "type": "shareact.core.model.Condition.Type",
-              "value": "FILE"
+              "value": "LINK"
             },
             {
-              "type": "shareact.core.model.Condition.MimeType",
-              "value": "image/jpeg"
+              "type": "shareact.core.model.Condition.Domain",
+              "value": "open.spotify.com",
+              "includeSubdomains": false
+            },
+            {
+              "type": "shareact.core.model.Condition.PathPrefix",
+              "value": "/episode/"
             }
           ]
         ],
         "templateRef": {
-          "id": "food-calories-template",
+          "id": "podcast-notion-template",
           "version": 1
         },
         "action": {
@@ -42,21 +47,21 @@
         "grant": null
       },
       "template": {
-        "id": "food-calories-template",
+        "id": "podcast-notion-template",
         "version": 1,
-        "instruction": "Estimate food portions and calories with explicit uncertainty. Append-only to verified spreadsheet_id=fixture-spreadsheet, spreadsheet_url=https://docs.google.com/spreadsheets/d/fixture-spreadsheet/edit, sheet_id=0, sheet_name=Food log. Include source private_url and task_id. These destination identifiers are fixtures, not authorized live resources.",
+        "instruction": "Read an available transcript for {{url}}, or transcribe legally accessible audio with an actual available tool. Never invent transcript content or bypass access controls. Save title, transcript and source URL to page_id=fixture-page, page_url=https://www.notion.so/fixture-page after authorization. This is a fixture, not a verified live destination.",
         "outputPreferences": {
           "language": "en",
           "format": "markdown"
         }
       },
       "test_input": {
-        "type": "FILE",
-        "text": "Food photo",
+        "type": "LINK",
+        "text": "Podcast episode access test",
         "subject": "",
-        "url": null,
-        "mime_type": "image/jpeg",
-        "file_name": "Studio-photo.jpg"
+        "url": "https://open.spotify.com/episode/1TlNXfKkC732xX1AuCMeXp",
+        "mime_type": "text/plain",
+        "file_name": null
       }
     },
     "connection_context": "synthetic_metadata_only",

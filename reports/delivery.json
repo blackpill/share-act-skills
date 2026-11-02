@@ -1,0 +1,152 @@
+{
+  "ok": true,
+  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
+  "implementation_hash": "07871658e0260cee9edb10d45c4e19bf3d0a0ca5b054352c1eee901c31d6fdc7",
+  "evidence_hash": "b406a25ac71d3aea92f1bb35d7f2f652b83302176c0006330f6765b0b2105dec",
+  "jar_sha256": "2beb1c7f61b7f3ff6fad5067a87519e64f16f3440cc407c754212cd38e2fa08e",
+  "case_count": 34,
+  "results": [
+    {
+      "name": "amazon-monitor.json",
+      "delivered": true,
+      "sha256": "12bb8cd9e0d6e845af989496ddc8f33ddf2706d97498e3ca02eea05956ee9a6d"
+    },
+    {
+      "name": "food-calories.json",
+      "delivered": true,
+      "sha256": "36d02ef0cf52d6090b8aa03b85800dd75ba133a24c997cffc7801613d360489b"
+    },
+    {
+      "name": "pdf-drive.json",
+      "delivered": true,
+      "sha256": "db8ee83d3cb2ed3f21463bc3611645a5839eac7b71e0f8e5bfedc83502161223"
+    },
+    {
+      "name": "podcast-notion.json",
+      "delivered": true,
+      "sha256": "52e5e4ac017df6d51794911d899b319b0a94a81a3223491a61b87173db73bbd4"
+    },
+    {
+      "name": "text-calendar.json",
+      "delivered": true,
+      "sha256": "36d346bccae0d9f8528ed081992d056b740b519cd24e5cc1f45bc1d5872693d5"
+    },
+    {
+      "name": "utf8-bom-is-not-stripped",
+      "delivered": false
+    },
+    {
+      "name": "literal-newline-instruction",
+      "delivered": false
+    },
+    {
+      "name": "markdown-link-corrupts-tail",
+      "delivered": false
+    },
+    {
+      "name": "markdown-link-in-url",
+      "delivered": false
+    },
+    {
+      "name": "request-escaping-exceeds-wire-limit",
+      "delivered": false
+    },
+    {
+      "name": "wrong-bot",
+      "delivered": false
+    },
+    {
+      "name": "future-version",
+      "delivered": false
+    },
+    {
+      "name": "extra-top-field",
+      "delivered": false
+    },
+    {
+      "name": "reference-mismatch",
+      "delivered": false
+    },
+    {
+      "name": "unknown-sample",
+      "delivered": false
+    },
+    {
+      "name": "mime-extension-mismatch",
+      "delivered": false
+    },
+    {
+      "name": "sample-does-not-match",
+      "delivered": false
+    },
+    {
+      "name": "unknown-variable",
+      "delivered": false
+    },
+    {
+      "name": "missing-variable-on-file",
+      "delivered": false
+    },
+    {
+      "name": "oversized-template",
+      "delivered": false
+    },
+    {
+      "name": "empty-groups",
+      "delivered": false
+    },
+    {
+      "name": "too-many-conditions",
+      "delivered": false
+    },
+    {
+      "name": "non-webhook",
+      "delivered": false
+    },
+    {
+      "name": "bad-domain",
+      "delivered": false
+    },
+    {
+      "name": "bad-path",
+      "delivered": false
+    },
+    {
+      "name": "grant-import",
+      "delivered": false
+    },
+    {
+      "name": "non-canonical-safety",
+      "delivered": false
+    },
+    {
+      "name": "disabled-normalized-by-app",
+      "delivered": false
+    },
+    {
+      "name": "missing-default-fields",
+      "delivered": false
+    },
+    {
+      "name": "malformed-json",
+      "delivered": false
+    },
+    {
+      "name": "markdown-fence",
+      "delivered": false
+    },
+    {
+      "name": "duplicate-root-key",
+      "delivered": false
+    },
+    {
+      "name": "wrong-language-normalized-by-app",
+      "delivered": false
+    },
+    {
+      "name": "surrogate",
+      "delivered": false
+    }
+  ],
+  "live_service_readiness_checked": false
+}

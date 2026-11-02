@@ -26,7 +26,7 @@ Requirements: Node.js 20+ and Java 17+. No npm dependencies or API keys are requ
 
 ```bash
 cd skills/share-act-config
-node scripts/validate.mjs "/absolute/path/rule.json" --context "/absolute/path/context.json"
+node scripts/finalize.mjs "/absolute/path/draft.json" --context "/absolute/path/context.json" --out "/absolute/path/config.json"
 ```
 
 Read `SKILL.md` for the context recipe. Example Bot IDs and service destinations are offline fixtures, never production settings. A passing report proves the exact file passed the bundled source codec and supplemental policy/matching checks, not live account access or on-device acceptance.
@@ -40,6 +40,7 @@ See `skills/share-act-config/references/upgrades.md` for staging, source checks,
 SHAREACT_ANDROID_SOURCE="/absolute/path/ShareAct-Android" npm test
 SHAREACT_ANDROID_SOURCE="/absolute/path/ShareAct-Android" npm run check:source
 SHAREACT_ANDROID_SOURCE="/absolute/path/ShareAct-Android" npm run test:consistency
+SHAREACT_ANDROID_SOURCE="/absolute/path/ShareAct-Android" npm run test:delivery
 SHAREACT_ANDROID_SOURCE="/absolute/path/ShareAct-Android" npm run package
 ```
 
@@ -48,3 +49,5 @@ The project contains no real webhook secrets or destination IDs. No commits, pus
 ## Licensing
 
 Bundled dependency licenses are reproduced in `skills/share-act-config/references/third-party-licenses.md`. No separate open-source license for Share & Act application code is declared by this repository.
+
+Ready configurations are delivered as finalized JSON file attachments, not pasted rich-text JSON. The finalizer revalidates the exact output bytes and writes a separate hash receipt.

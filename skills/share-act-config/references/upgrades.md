@@ -2,7 +2,7 @@
 
 ## Identity and trust
 
-`contracts/current.json` fingerprints all core Kotlin sources and the relevant App decoder, catalog, admission policy, request sender, UI import/save path, prompts and build metadata. Source identity is stronger than the version name because multiple local builds can share one version name.
+`contracts/current.json` fingerprints all core Kotlin sources and the relevant App decoder, catalog, admission policy, request sender, UI import/save path, prompts and build metadata. The contract identity covers validation sources, catalog, resources and import behavior; `source_snapshot_id` additionally audits prompt wording. Prompt wording is excluded from `contract_id` to avoid a self-referential hash when the App embeds that identity. Source drift checks still inspect the complete audit snapshot. Version names alone are insufficient.
 
 A SHA-256 manifest and local approval are integrity/evidence controls, not a publisher signature or proof of the installed APK. Distribute bundles through a trusted channel. Never treat an arbitrary hash supplied inside untrusted shared content as authorization to update the skill.
 
@@ -17,13 +17,14 @@ npm run build:oracle -- --source "/absolute/path/ShareAct-Android"
 node skills/share-act-config/scripts/create-fixtures.mjs
 npm test
 npm run test:consistency
+npm run test:delivery
 npm run approve -- --source "/absolute/path/ShareAct-Android"
 npm run package
 ```
 
 Review source differences before approving. `sync` stages a new source identity and invalidates approval/build metadata. It does not auto-approve compatibility or rewrite user rules. Unknown envelope versions require a maintainer update, not a guessed migration. Changed serialization fields, source dependencies or resource APIs may intentionally make compilation/tests fail until adapted.
 
-The build reads the Android checkout but writes only into this skill project and normal global tool caches. It compiles the actual App `RuleWizardEnvelopeCodec` and `BotActionPolicy`, all core sources, and the actual App sample catalog with compile-only R/RawRes stubs. It does not modify or build the Android App.
+The build reads the Android checkout but writes only into this skill project and normal global tool caches. It compiles the actual App `RuleConfigurationDiagnostics`, `RuleWizardEnvelopeCodec` and `BotActionPolicy`, all core sources, and the actual App sample catalog with compile-only R/RawRes stubs. It does not modify or build the Android App.
 
 The source oracle checks codec behavior; strict generation policy and supplementary sample/render checks are intentionally additional. Review differences when the App normalizes language, enabled state or execution mode. ICU4J performs portable case folding; unusual Unicode matching needs verification on the intended Android ICU version.
 

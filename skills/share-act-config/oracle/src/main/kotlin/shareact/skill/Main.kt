@@ -27,7 +27,7 @@ private fun validate(request: JsonObject): JsonObject {
         val bot = if (context["connection"] != null) json.decodeFromJsonElement<ConnectionConfig>(context.getValue("connection"))
             else ConnectionConfig(id, 1, "Selected Bot (offline metadata fixture)", Adapter.GROK, "https://example.com/grok-hook", headers = mapOf("Authorization" to HeaderValue.SecretRef("offline-reference")))
         require(bot.id == id) { "context_bot_id_mismatch" }
-        val draft = RuleWizardEnvelopeCodec.decode(text, bot, language)
+        val draft = RuleConfigurationDiagnostics.decode(text, bot, language)
         codecAccepted = true
         normalized = json.encodeToJsonElement(RuleWizardEnvelope.serializer(), RuleWizardEnvelope(1, draft.rule, draft.template, draft.testInput))
         val input = draft.testInput.toNormalizedInput(Instant.EPOCH)

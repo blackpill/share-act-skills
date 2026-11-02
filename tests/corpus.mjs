@@ -10,7 +10,13 @@ export function envelope(kind='FILE') {
 }
 const modify = fn => {const v=envelope();fn(v);return v;};
 const escapedRequest=envelope('TEXT');escapedRequest.test_input.text='"'.repeat(65536);escapedRequest.template.instruction='{{text}}';
+const multiline=envelope('LINK');multiline.template.instruction='First line\nRead {{url}}';
 export const cases=[
+  {name:"utf8-bom-is-not-stripped",raw:"\ufeff"+JSON.stringify(envelope()),preflight:false,codec:false,dry:false},
+  {name:'escaped-newline-valid',value:multiline,preflight:true,codec:true,dry:true},
+  {name:'literal-newline-instruction',raw:JSON.stringify(multiline).replace('First line\\nRead','First line\nRead'),preflight:false,codec:false,dry:false},
+  {name:'markdown-link-corrupts-tail',raw:JSON.stringify(envelope('LINK'))+'](https://open.spotify.com/episode/test)',preflight:false,codec:false,dry:false},
+  {name:'markdown-link-in-url',value:(()=>{const v=envelope('LINK');v.test_input.url='[episode](https://open.spotify.com/episode/test)';return v;})(),preflight:true,codec:false,dry:false},
   {name:"request-escaping-exceeds-wire-limit",value:escapedRequest,preflight:true,codec:true,dry:false},
   ...['FILE','LINK','TEXT'].map(k=>({name:`valid-${k}`,value:envelope(k),preflight:true,codec:true,dry:true})),
   {name:'wrong-bot',value:modify(v=>v.rule.action.connectionId='another-bot'),preflight:false,codec:false},
@@ -34,7 +40,7 @@ export const cases=[
   {name:'missing-default-fields',value:modify(v=>delete v.test_input.subject),preflight:false,codec:true,dry:true},
   {name:'malformed-json',raw:'{"envelope_version":',preflight:false,codec:false},
   {name:'markdown-fence',raw:'```json\n{}\n```',preflight:false,codec:false},
-  {name:'duplicate-root-key',raw:JSON.stringify(envelope()).replace('"envelope_version":1','"envelope_version":1,"envelope_version":1'),preflight:false,codec:true,dry:true},
+  {name:'duplicate-root-key',raw:JSON.stringify(envelope()).replace('"envelope_version":1','"envelope_version":1,"envelope_version":1'),preflight:false,codec:false,dry:false},
   {name:'wrong-language-normalized-by-app',value:modify(v=>v.template.outputPreferences.language='zh-CN'),preflight:false,codec:true,dry:true},
   {name:'surrogate',value:modify(v=>v.template.instruction='\ud800'),preflight:false,codec:false},
 ];

@@ -23,17 +23,57 @@
     "import_bytes": 1048576,
     "request_bytes": 131072
   },
-  "evidence_hash": "2bf773ae24bc54728277a9e5aea2839a6b0474293379348e5d574fe9ddc5a835",
-  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
-  "implementation_hash": "de08d1f2c3992217d88631a638b6455a92bbb19ea636d40336f10bf952d63e04",
-  "jar_sha256": "36943d59c74bd1270c53f6416cffa1316368cdae04fc9ae2b58ef3fe18647a3d",
+  "evidence_hash": "b406a25ac71d3aea92f1bb35d7f2f652b83302176c0006330f6765b0b2105dec",
+  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
+  "implementation_hash": "07871658e0260cee9edb10d45c4e19bf3d0a0ca5b054352c1eee901c31d6fdc7",
+  "jar_sha256": "2beb1c7f61b7f3ff6fad5067a87519e64f16f3440cc407c754212cd38e2fa08e",
   "source_check": {
     "ok": true,
-    "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+    "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
     "changed": []
   },
-  "case_count": 33,
+  "case_count": 38,
   "results": [
+    {
+      "name": "utf8-bom-is-not-stripped",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_json"
+    },
+    {
+      "name": "escaped-newline-valid",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "literal-newline-instruction",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "Bad control character in string literal in JSON at position 11 (line 1 column 12)"
+    },
+    {
+      "name": "markdown-link-corrupts-tail",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_json"
+    },
+    {
+      "name": "markdown-link-in-url",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_link_sample"
+    },
     {
       "name": "request-escaping-exceeds-wire-limit",
       "strict_policy": true,
@@ -128,7 +168,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "unknown_variable"
     },
     {
       "name": "missing-variable-on-file",
@@ -144,7 +184,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "template_too_large"
     },
     {
       "name": "empty-groups",
@@ -152,7 +192,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "invalid_group_shape"
     },
     {
       "name": "too-many-conditions",
@@ -160,7 +200,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "invalid_group_shape"
     },
     {
       "name": "non-webhook",
@@ -176,7 +216,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "invalid_condition"
     },
     {
       "name": "bad-path",
@@ -184,7 +224,7 @@
       "android_codec": false,
       "dry_run": false,
       "delivery_gate": false,
-      "error": "invalid_configuration"
+      "error": "invalid_condition"
     },
     {
       "name": "grant-import",
@@ -237,8 +277,8 @@
     {
       "name": "duplicate-root-key",
       "strict_policy": false,
-      "android_codec": true,
-      "dry_run": true,
+      "android_codec": false,
+      "dry_run": false,
       "delivery_gate": false,
       "error": "duplicate_json_key"
     },
