@@ -39,11 +39,11 @@ Read [service setup](references/services.md) for the relevant template. Before c
 
 1. Inspect actual tools and connection status in this Grok Bot environment.
 2. If a required connection is missing, use an available supported connect/create flow and ask the user to complete authorization. Never invent a connector or ask for raw OAuth tokens, passwords or webhook secrets in chat.
-3. Ask the user to select an existing destination or confirm creation of a new one. Inspect the chosen target and required permissions using real tools.
+3. Ask the user to select an existing destination or confirm creation of a new one. For smart PDF filing, confirm the allowed folder scope and routing preferences instead of a fixed destination; choose a folder per PDF from its filename and actual content, asking when uncertain. Inspect targets and required permissions using real tools.
 4. Persist verified stable IDs, URLs, names, account context, mappings and preferences in `template.instruction`. Do not add fields to the envelope. Do not rely on chat memory for future runs.
 5. If setup tools, source access or authorization are unavailable, explain the blocker. A syntactically valid draft is not a ready rule. Do not claim a connection, remote write, schedule or target was created without evidence.
 
-Future execution reuses the saved destination and connection. Ask again only when configuration is missing, authorization is revoked, the target is gone, or the user requests a change. Use append-only behavior unless the user explicitly requests and authorizes another operation. Preserve required approvals.
+Future execution reuses the saved destination and connection for fixed-target tasks. Smart PDF filing reuses only the allowed scope, connection and routing criteria; it chooses a destination for each PDF and asks before filing when the evidence is ambiguous. For fixed-target tasks, ask again only when configuration is missing, authorization is revoked, the target is gone, or the user requests a change. For smart PDF filing, also ask whenever the current file has insufficient or conflicting routing evidence. Use append-only behavior unless the user explicitly requests and authorizes another operation. Preserve required approvals.
 
 ## 3. Generate one canonical envelope
 

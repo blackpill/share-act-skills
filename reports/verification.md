@@ -1,6 +1,6 @@
 # Final verification: exact-file delivery
 
-- 50 Node.js regression tests passed.
+- 52 Node.js regression tests passed.
 - 38 App-source consistency cases passed, including current import diagnostics and all five template fixtures.
 - 34 actual-finalizer delivery cases passed: valid files are byte-identical to checked drafts; invalid inputs create no ready output or receipt.
 - The oracle compiles the unmodified App diagnostics entrypoint, envelope decoder, Bot policy, actual sample catalog and core validators/request builder. Compile-only R/RawRes stubs replace resource IDs and annotations.
@@ -10,3 +10,7 @@
 - Source checks, Skill frontmatter validation and English-only artifact checks passed before publishing.
 
 The Skill build does not modify the Android project. The parent task separately updated the App's validation-profile pin and JSON-attachment instructions under user authorization. Live OAuth, plan capacity, service permissions, remote writes and edits made after finalization are not covered by offline evidence. Attach the finalized file unchanged, verify attachment bytes when supported and import the file into the App rather than pasting rendered chat JSON.
+
+## Smart PDF routing revision
+
+The PDF playbook, fixture and App example now choose an existing destination for each document using its filename and actual content. Saved folder IDs identify an authorized scope, not a fixed leaf destination. Ambiguous, unreadable or unmatched documents require user clarification before filing. No automatic folder creation, last-folder reuse or unrelated content processing is authorized. A read-only five-scenario review confirmed these boundaries.

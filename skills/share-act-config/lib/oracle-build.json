@@ -1,7 +1,7 @@
 {
-  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
-  "implementation_hash": "07871658e0260cee9edb10d45c4e19bf3d0a0ca5b054352c1eee901c31d6fdc7",
-  "jar_sha256": "2beb1c7f61b7f3ff6fad5067a87519e64f16f3440cc407c754212cd38e2fa08e",
+  "contract_id": "dc22ac003285b422889fa102a5a6c1501ec5b7c884b594dab7a94e8ac8bf3549",
+  "implementation_hash": "69a4144e4bc9f1ea1471a465a242db2376850245869f554142beda255b71e54c",
+  "jar_sha256": "0677bed0dd3d76b3294103af9f5fb240ed1e41d13713dc48c4c2667a14d954e9",
   "codec": "Unmodified Android RuleWizardEnvelopeCodec",
   "sample_adapter": "Unmodified App catalog; compile-only R and RawRes stubs",
   "case_folding": "ICU4J 77.1; Android ICU version may differ"

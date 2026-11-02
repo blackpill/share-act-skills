@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
-  "configuration_sha256": "52e5e4ac017df6d51794911d899b319b0a94a81a3223491a61b87173db73bbd4",
-  "context_sha256": "e9195485e04e504aaaa1c6a1020bfb30f4912f7de0032887089ba594b781dc1d",
+  "contract_id": "dc22ac003285b422889fa102a5a6c1501ec5b7c884b594dab7a94e8ac8bf3549",
+  "configuration_sha256": "becca82e6eaca56ed767171f54fcf6446af77b0cbdfcd5f97f2c7605bf8bc165",
+  "context_sha256": "f7d6046fef50f5864c8623fbc0e060cdd284c21f42a6311d1d5a9cb5fe98fe77",
   "oracle": {
     "codec_accepted": true,
     "sample_matches": true,
@@ -13,29 +13,24 @@
     "normalized": {
       "envelope_version": 1,
       "rule": {
-        "id": "podcast-notion",
+        "id": "pdf-drive",
         "version": 1,
         "position": 0,
-        "name": "podcast notion",
+        "name": "pdf drive",
         "groups": [
           [
             {
               "type": "shareact.core.model.Condition.Type",
-              "value": "LINK"
+              "value": "FILE"
             },
             {
-              "type": "shareact.core.model.Condition.Domain",
-              "value": "open.spotify.com",
-              "includeSubdomains": false
-            },
-            {
-              "type": "shareact.core.model.Condition.PathPrefix",
-              "value": "/episode/"
+              "type": "shareact.core.model.Condition.MimeType",
+              "value": "application/pdf"
             }
           ]
         ],
         "templateRef": {
-          "id": "podcast-notion-template",
+          "id": "pdf-drive-template",
           "version": 1
         },
         "action": {
@@ -47,21 +42,21 @@
         "grant": null
       },
       "template": {
-        "id": "podcast-notion-template",
+        "id": "pdf-drive-template",
         "version": 1,
-        "instruction": "Read an available transcript for {{url}}, or transcribe legally accessible audio with an actual available tool. Never invent transcript content or bypass access controls. Save title, transcript and source URL to page_id=fixture-page, page_url=https://www.notion.so/fixture-page after authorization. This is a fixture, not a verified live destination.",
+        "instruction": "For each PDF, inspect its filename and actual PDF content, then examine the existing folder hierarchy within authorized_folder_scope=fixture-root (https://drive.google.com/drive/folders/fixture-root). This scope is not a fixed destination. Choose a uniquely appropriate existing folder using document type, topic, issuer/client, project and dates; do not reuse the last chosen folder automatically. If uncertain, multiple folders fit, content cannot be read, no suitable folder exists or access is missing, ask the user before filing and leave the file unchanged. Reuse files[].file_id and verify any authorized move before claiming it happened. Do not create folders, rename, duplicate, edit or delete files without explicit confirmation. Report the chosen folder/file links and a short reason. Save reusable routing criteria, not a permanent leaf destination. Scope identifiers here are offline test fixtures.",
         "outputPreferences": {
           "language": "en",
           "format": "markdown"
         }
       },
       "test_input": {
-        "type": "LINK",
-        "text": "Podcast episode access test",
+        "type": "FILE",
+        "text": "PDF report",
         "subject": "",
-        "url": "https://open.spotify.com/episode/1TlNXfKkC732xX1AuCMeXp",
-        "mime_type": "text/plain",
-        "file_name": null
+        "url": null,
+        "mime_type": "application/pdf",
+        "file_name": "Quarterly-report.pdf"
       }
     },
     "connection_context": "synthetic_metadata_only",

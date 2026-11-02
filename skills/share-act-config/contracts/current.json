@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
-  "contract_id": "025842af680a4bd114f3dbd820ac6ec91b407a811bf21a4f488e4c2feea9f5a3",
-  "source_snapshot_id": "d53272c16093b30febdbfa61972747f8a132f350ef36c53ff8d56512e18c26ae",
+  "contract_id": "dc22ac003285b422889fa102a5a6c1501ec5b7c884b594dab7a94e8ac8bf3549",
+  "source_snapshot_id": "0550b20064e87641aff6e9c7ba4898c40809b33dab7518c29826351102ce2ad3",
   "envelope_version": 1,
   "configuration_schema_version": 2,
   "runtime_protocols": [
@@ -47,8 +47,8 @@
     "app/src/main/java/shareact/android/ui/rules/RuleConfigurationDiagnostics.kt": "488a2380bfe2b2e2b619ffd6e754d53446ffd01807428f37f303a1d94c744978",
     "app/src/main/java/shareact/android/ui/rules/RuleTestViewModel.kt": "f46aea49441b485d0c8ea6373de57afc8820d46058f98e513cf52c2c246d3df1",
     "app/src/main/java/shareact/android/ui/rules/RuleWizardEnvelope.kt": "1cdcd070dd8e80575d37184df05baeea6e29d48aa5eacf49dcfce2b2ab837ff5",
-    "app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt": "fac7ed2f1f476b7055522f5c94eadad7e0b3fd18b25b14be1d30d158e455fa71",
-    "app/src/main/java/shareact/android/ui/rules/RuleWizardSamples.kt": "c60751f2fa450123015c6cb5a45850e305132ec9a4fa8c5480ea0fb2f0c11633",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt": "c5a236d449be9e466c9898ef2084a54791a661c830dcedde2f776cb084029d27",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardSamples.kt": "eedf8e589b5be177e2eb6fd5ad81ae5dc33ffc6d5dd01e4441baa0a03ddbb22e",
     "app/src/main/java/shareact/android/ui/rules/RulesWorkspace.kt": "2babed3fbdd15c78f1885a9fd126f27a1b06d668223020a48061d3d4e8e3d81d",
     "app/src/main/res/raw/sample_invoice.pdf": "f753efa292d25c38a1e94b39499544b985747701f5e6128e70cc87d60f67a018",
     "app/src/main/res/raw/sample_photo.jpg": "2d58fbd50796e1e4ba5a36d062c7c02465522a29eaa91345b5e69f9d5ec4ce86",

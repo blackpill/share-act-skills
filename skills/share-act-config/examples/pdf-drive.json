@@ -32,7 +32,7 @@
   "template": {
     "id": "pdf-drive-template",
     "version": 1,
-    "instruction": "Use the existing files[].file_id and file it under verified folder_id=fixture-folder, folder_url=https://drive.google.com/drive/folders/fixture-folder. Never make the file public or upload a duplicate. These identifiers are test fixtures.",
+    "instruction": "For each PDF, inspect its filename and actual PDF content, then examine the existing folder hierarchy within authorized_folder_scope=fixture-root (https://drive.google.com/drive/folders/fixture-root). This scope is not a fixed destination. Choose a uniquely appropriate existing folder using document type, topic, issuer/client, project and dates; do not reuse the last chosen folder automatically. If uncertain, multiple folders fit, content cannot be read, no suitable folder exists or access is missing, ask the user before filing and leave the file unchanged. Reuse files[].file_id and verify any authorized move before claiming it happened. Do not create folders, rename, duplicate, edit or delete files without explicit confirmation. Report the chosen folder/file links and a short reason. Save reusable routing criteria, not a permanent leaf destination. Scope identifiers here are offline test fixtures.",
     "outputPreferences": {
       "language": "en",
       "format": "markdown"
