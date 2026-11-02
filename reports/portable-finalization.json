@@ -1,9 +1,10 @@
 {
   "ok": true,
+  "copy_helper_sha256": "c81f3fed6451b8daa80fbd06598761d78919d865d6b0d1a8fd6aefdffb6437bd",
   "delivery_format": "json_file_attachment",
-  "configuration_sha256": "becca82e6eaca56ed767171f54fcf6446af77b0cbdfcd5f97f2c7605bf8bc165",
-  "context_sha256": "f7d6046fef50f5864c8623fbc0e060cdd284c21f42a6311d1d5a9cb5fe98fe77",
-  "contract_id": "dc22ac003285b422889fa102a5a6c1501ec5b7c884b594dab7a94e8ac8bf3549",
+  "configuration_sha256": "6308a3e202c0444c40af28d3519b7b4dc1c51bbcf122242c20a8513199df4e03",
+  "context_sha256": "00c2625f02bf87bff6aeb5d015f7237334c51cb63ffb59a139254ddf34a70f46",
+  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
   "validation": {
     "ok": true,
     "oracle": {

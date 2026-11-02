@@ -52,3 +52,21 @@ test('replacement of the output inode is rejected even if the bytes match',()=>f
  assert.throws(()=>finalizeConfig(input,context,output,{validator:replace}),/final_file_changed/);
  assert.equal(fs.existsSync(output),false);
 }));
+test('a finalized file includes a copy helper bound to the same bytes',()=>fixture(dir=>{
+ const input=path.join(dir,'draft.json'),output=path.join(dir,'config.json');const bytes=Buffer.from(JSON.stringify(envelope()));fs.writeFileSync(input,bytes);
+ const receipt=finalizeConfig(input,context,output,{validator:accepted});
+ const helper=fs.readFileSync(output+'.copy.html');assert.equal(receipt.copy_helper_sha256,hash(helper));assert.ok(helper.toString().includes(bytes.toString('base64')));
+}));
+test('helper cleanup failure cannot leave a success receipt or JSON deliverable',()=>fixture(dir=>{
+ const input=path.join(dir,'draft.json'),output=path.join(dir,'config.json');fs.writeFileSync(input,JSON.stringify(envelope()));
+ const originalOpen=fs.openSync;
+ try{
+  fs.openSync=function(file,...args){
+   if(file===output+'.validation.json') {fs.rmSync(output+'.copy.html');fs.mkdirSync(output+'.copy.html');}
+   return originalOpen.call(fs,file,...args);
+  };
+  assert.throws(()=>finalizeConfig(input,context,output,{validator:accepted}));
+ }finally{fs.openSync=originalOpen;}
+ assert.equal(fs.existsSync(output),false);assert.equal(fs.existsSync(output+'.validation.json'),false);
+ assert.equal(fs.statSync(output+'.copy.html').isDirectory(),true);
+}));

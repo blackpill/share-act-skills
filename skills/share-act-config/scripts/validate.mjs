@@ -35,7 +35,7 @@ export function preflight(text,context){
   if(v.rule.version!==1||v.template.version!==1||v.rule.templateRef.version!==1||v.rule.position!==0||v.rule.enabled!==true||v.rule.executionMode!=='CONFIRM'||v.rule.grant!==null)throw Error('unsafe_generation_defaults');
   if(v.rule.action.type!=='shareact.core.model.Action.Webhook'||v.rule.action.connectionId!==context.bot_id)throw Error('bot_scope_mismatch');
   if(v.rule.templateRef.id!==v.template.id)throw Error('template_reference_mismatch');
-  if(v.template.outputPreferences.language!==context.language||v.template.outputPreferences.format!=='markdown')throw Error('output_preferences_mismatch');
+  if(v.template.outputPreferences.language!==context.language||typeof v.template.outputPreferences.format!=='string')throw Error('output_preferences_mismatch');
   return {ok:true,value:v};
  }catch(e){return {ok:false,error:e.message};}
 }

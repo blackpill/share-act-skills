@@ -66,7 +66,7 @@ fun main() {
             val request = json.parseToJsonElement(line).jsonObject
             if (request["describe"]?.jsonPrimitive?.booleanOrNull == true) {
                 println(buildJsonObject {
-                    put("sample_files", buildJsonArray { RuleWizardSamples.files(true).forEach { sample -> add(buildJsonObject { put("file_name", sample.input.fileName); put("mime_type", sample.input.mimeType) }) } })
+                    put("sample_files", buildJsonArray { RuleWizardTestFileCatalog.files.forEach { sample -> add(buildJsonObject { put("file_name", sample.fileName); put("mime_type", sample.mimeType) }) } })
                     put("template_bytes", Limits.TEMPLATE_BYTES)
                     put("import_bytes", Limits.IMPORT_BYTES)
                     put("request_bytes", Limits.REQUEST_BYTES)

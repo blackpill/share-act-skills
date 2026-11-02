@@ -1,17 +1,19 @@
-# Share & Act configuration skill implementation plan
+# Configuration compliance and copy delivery
 
-Initial implementation scope: create an English-only Grok Bot skill, deterministic validation, source-contract drift detection, an Android-source oracle, regression fixtures, and a distributable archive. The initial implementation did not modify the Android project or commit/push code. A later explicit user request authorizes creating the public blackpill/share-act-skills repository and committing/pushing this project only.
+The current release is task-neutral. Business workflows, service setup and destination selection are caller responsibilities and are not part of this skill.
 
-## Design
-- A portable skill invokes a Node.js CLI and a Java 17 oracle compiled directly from the Android rule-envelope decoder and core validators. No credentials or endpoints from the user's account are bundled.
-- Source SHA-256 manifests identify the contract; upgrades are staged, reviewed, rebuilt, tested and explicitly approved. Unknown contracts fail closed.
-- Compile-only R/RawRes stubs replace Android resource dependencies; the actual catalog, envelope decoder and core validation sources are not rewritten.
-- Structural validation is distinct from sample matching, safe-generation policy and live service readiness. No offline tool claims OAuth, quotas, remote writes, monitoring or on-device acceptance.
+## Architecture
+- Node.js performs strict canonical preflight and approved-artifact checks.
+- A Java 17 oracle compiles the actual App diagnostics, decoder, task-neutral test-file catalog and required core validation/request construction logic. Business-example classes and generation prompts are excluded.
+- Instruction content and caller-selected output format are preserved; only their structural encoding and App constraints are checked.
+- Finalization creates an unchanged JSON file, separate hash receipt and offline HTML copy-content helper. The helper has a real clipboard button, data-only rendering, integrity checks and explicit failure states.
+- Unknown source/contracts fail closed. The user authorized repository publication and installation of the matching App.
 
-## Checklist
-- [x] Read source validators and establish a no-skill baseline.
-- [x] Create failing regression tests.
-- [x] Implement contract sync, strict preflight, the source oracle and fixtures.
-- [x] Write the skill and service-specific setup references in English.
-- [x] Run source consistency, upgrade/mutation tests and a guided skill scenario.
-- [x] Package only a tested approved contract and record limitations.
+## Verification checklist
+- [x] Failing scope, neutral-catalog, copy-helper and cleanup regressions reproduced.
+- [x] Business playbooks and fixtures removed from the current Skill.
+- [x] Generic protocol fixtures and task-neutral App catalog implemented.
+- [x] Browser rendering and helper integrity initialization checked.
+- [x] Final source consistency, delivery tests, approval and package checks.
+
+Release sequence: push the verified repository update, then install the matching signed App under the user's explicit approval.

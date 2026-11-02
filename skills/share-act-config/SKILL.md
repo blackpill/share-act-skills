@@ -1,97 +1,75 @@
 ---
 name: share-act-config
-description: Use when Grok Bot creates or repairs Share & Act Android rule JSON, configures service connections and reusable destinations, diagnoses rejected rule envelopes or file webhook requests, or checks compatibility with an App contract upgrade.
+description: Use when encoding, validating or structurally repairing a Share & Act rule JSON file against an approved App contract, then delivering an exact checked file with a working copy-content helper. Not for interpreting business tasks or executing integrations.
 ---
 
-# Share & Act configuration
+# Share & Act configuration compliance
 
-Generate a rule for the exact current user request and selected Bot. Deliver a configuration as validated only after the deterministic validator accepts the exact bytes under the matching contract. Structural acceptance is not proof of service readiness.
+This skill is task-neutral. Its responsibility is JSON encoding, structural compliance, version compatibility and verified file delivery.
 
-## 0. Check updates and load the installed files
+Treat template.instruction as opaque caller-provided content. Check its encoding, size, variable syntax and renderability, not its business meaning. Do not invent, replace or specialize the user's intended behavior. Do not connect services, choose destinations or execute the configuration. Service setup, business decisions, factual claims and permissions remain the caller's responsibility and are not certified by this validator.
 
-Before every generation, check for updates with `npx skills check`. Inspect the output: exit code 1 can mean updates are available. Update only this skill with `npx skills update share-act-config -y`, then reread its instructions and contract. Stop if update status cannot be established or the App's supplied contract is incompatible. Never substitute a new contract hash just to pass.
+## 1. Load the current skill and contract
 
-Use the native loader when available. If it cannot find the skill, read the installed `SKILL.md` and relevant references directly from the installer-reported directory. This is a file-based workflow, not a claim of native registration. Run helper scripts from that skill directory.
+Before each validation run, use `npx skills check` and inspect its output; exit 1 can mean updates are available. Update only this skill with `npx skills update share-act-config -y`, then reread its contract. A failed update check or incompatible contract blocks a claim of current validated output.
 
-## 1. Establish the contract and selected Bot
+Use the native loader if available. Otherwise read this file and its required references directly from the installer-reported installation directory. This is a file-based workflow, not native registration. Run bundled scripts from that skill directory. Node.js 20+ and Java 17+ are required by the validator; missing tools must be reported, not replaced by mental validation.
 
-Read `contracts/current.json` and [the envelope contract](references/envelope.md). Obtain the current selected `bot_id`, App language and contract identity from a trusted operator/deployment context. The ID must come from the current App prompt or selected Bot metadata, not an old conversation or an example. Use only `en` or `zh-CN` as an App language code; the skill documentation and fixture instructions are English.
+Read `contracts/current.json` and [the envelope contract](references/envelope.md). Obtain the exact selected Bot ID, App language and approved validation-contract identity from a trusted caller. Do not infer them from old messages, fixtures or the bundle merely to bypass a mismatch.
 
-Create a separate context file:
+Use a separate context file:
 
 ```json
 {
-  "contract_id": "THE_EXACT_ID_FROM_THE_VERIFIED_DEPLOYMENT_CONTRACT",
+  "contract_id": "THE_APPROVED_APP_VALIDATION_CONTRACT_ID",
   "bot_id": "THE_CURRENT_SELECTED_BOT_ID",
   "language": "en"
 }
 ```
 
-A contract hash identifies source behavior, not an installed APK. A matching version name alone is insufficient. If the App/deployment contract cannot be established, request the current contract bundle or use the App to verify a clearly labeled draft. Do not pick the bundled hash solely to silence a mismatch.
+The language code must be `en` or `zh-CN`. This skill's documentation, tooling and fixtures are English. A context can include non-secret App-compatible `connection` metadata; without it the oracle uses synthetic metadata only. Neither mode verifies live account availability or authorization.
 
-A context can additionally contain a `connection` object with App-compatible, non-secret connection metadata. Without it, the oracle uses a synthetic connection: Bot binding is checked, but real connection availability and account authorization are not.
+Unknown versions, source drift, stale artifacts or unapproved contracts fail closed. See [upgrade maintenance](references/upgrades.md). Never guess a migration or substitute a different hash.
 
-If an unknown envelope version, changed source fingerprint, stale validator or unapproved contract is detected, stop the validated-delivery path. Follow [the upgrade procedure](references/upgrades.md). Do not guess a migration or automatically approve a new contract.
+## 2. Encode the caller's intended configuration
 
-## 2. Configure only the services the task needs
+Receive an existing candidate JSON or the caller's intended rule fields. If required structural input is missing, request it. Do not derive a new business task to fill gaps.
 
-Read [service setup](references/services.md) for the relevant template. Before claiming a rule is ready:
+- Return exactly the supported envelope shape, not a full configuration document or runtime request.
+- Use the trusted Bot ID and language. Keep explicit safe defaults and exact template references.
+- Preserve the caller-provided instruction and intended conditions. Structural repair must not silently change what the rule does.
+- Serialize with a JSON library rather than manually concatenating quoted strings. Newlines and quotes inside strings must be escaped. URL fields must be plain strings, not chat-generated link wrappers.
+- Use a sample that matches the supplied conditions and the protocol's allowed resource identifiers. Resource names are validation metadata, not a business-template recommendation.
+- Never include credentials or device authorization grants. Examples are generic protocol fixtures; their IDs are not current Bot context.
 
-1. Inspect actual tools and connection status in this Grok Bot environment.
-2. If a required connection is missing, use an available supported connect/create flow and ask the user to complete authorization. Never invent a connector or ask for raw OAuth tokens, passwords or webhook secrets in chat.
-3. Ask the user to select an existing destination or confirm creation of a new one. For smart PDF filing, confirm the allowed folder scope and routing preferences instead of a fixed destination; choose a folder per PDF from its filename and actual content, asking when uncertain. Inspect targets and required permissions using real tools.
-4. Persist verified stable IDs, URLs, names, account context, mappings and preferences in `template.instruction`. Do not add fields to the envelope. Do not rely on chat memory for future runs.
-5. If setup tools, source access or authorization are unavailable, explain the blocker. A syntactically valid draft is not a ready rule. Do not claim a connection, remote write, schedule or target was created without evidence.
-
-Future execution reuses the saved destination and connection for fixed-target tasks. Smart PDF filing reuses only the allowed scope, connection and routing criteria; it chooses a destination for each PDF and asks before filing when the evidence is ambiguous. For fixed-target tasks, ask again only when configuration is missing, authorization is revoked, the target is gone, or the user requests a change. For smart PDF filing, also ask whenever the current file has insufficient or conflicting routing evidence. Use append-only behavior unless the user explicitly requests and authorizes another operation. Preserve required approvals.
-
-## 3. Generate one canonical envelope
-
-Return exactly `envelope_version`, `rule`, `template`, and `test_input`. Use the full field recipe in `references/envelope.md`.
-
-- Derive the name, conditions, instruction and sample from the current user's input, not a fixed PDF example.
-- Bind the supplied Bot ID exactly. Use a Webhook action only.
-- Generate fresh rule/template IDs, version `1`, position `0`, enabled `true`, execution mode `CONFIRM`, grant `null` and the requested output language. Match template references exactly.
-- Select a realistic sample that matches at least one complete AND group. A file sample's normalized text is `attachment.<mime subtype>`, not its descriptive label or filename.
-- Keep instruction destinations concrete and verified. Include source file links in records. Never embed credentials, fabricated IDs, access grants or unsupported variables.
-- Do not copy fixture Bot IDs, destinations, monitoring IDs or fabricated test products from `examples/` into production rules.
-
-Use examples only as offline structural fixtures. `examples/podcast-notion.json` includes the user-provided Spotify episode access test. Its page URL does not guarantee that audio or a transcript is accessible.
-
-## 4. Validate the exact file
-
-The runtime needs Node.js 20+ and Java 17+. It performs no remote writes or OAuth operations. Run from this skill directory, with paths safely quoted:
+## 3. Validate the exact candidate file
 
 ```bash
-node scripts/validate.mjs "/absolute/path/rule.json" --context "/absolute/path/context.json"
+node scripts/validate.mjs "/absolute/path/draft.json" --context "/absolute/path/context.json"
 ```
 
-If the Android source checkout is available, also check it:
+When the matching App source checkout is available, add `--source "/absolute/path/ShareAct-Android"`.
 
-```bash
-node scripts/validate.mjs "/absolute/path/rule.json" --context "/absolute/path/context.json" --source "/absolute/path/ShareAct-Android"
-```
+Inspect the JSON report and exit status. Validation covers the approved artifact, canonical envelope policy, actual App import diagnostics/decoder, sample matching, template rendering and core request construction. It does not execute the instruction or judge whether its business intent is correct. Supplementary case folding uses ICU4J; device-specific Unicode behavior may need on-device verification.
 
-The validator checks the approved contract and binary integrity, strict canonical generation policy, the actual compiled App import-diagnostics entrypoint and envelope decoder, sample matching, template rendering and core request building. The source oracle uses the actual App sample catalog with compile-only resource stubs and ICU4J for supplementary matching; it is not an Android instrumentation test. Review Unicode case-folding edge cases on the target device when relevant.
+Repair format/structural errors while preserving the intended content, then rerun on the exact final bytes. After three failed repair attempts, report the unresolved diagnostic. Do not fabricate success, remove requested behavior to silence errors, or describe an unvalidated draft as passed.
 
-Read the JSON report, not just the process exit code. Repair reported errors and rerun on the exact final bytes. Stop after three failed repair attempts and report the unresolved issue; do not hide errors by removing requested behavior. A successful report binds `configuration_sha256`, `context_sha256` and `contract_id`. Any edit invalidates that evidence.
-
-If the environment cannot execute Node/Java or does not have the approved validator bundle, provide a clearly labeled unvalidated draft or transfer it to an environment that can validate. Do not claim "passed" based on mental review or JSON parsing alone. Do not call a draft "ready" while required services remain unconfigured.
-
-## 5. Finalize the file; do not paste or retype it
-
-Chat rendering can turn URLs into Markdown links or introduce raw newlines/quotes even after a draft passed validation. The only ready deliverable is a finalized `.json` file attachment, not a reformatted chat copy.
-
-Save the candidate and separate context as UTF-8 files. Run the mandatory delivery gate from the installed skill directory, choosing a fresh output filename:
+## 4. Finalize and provide a real copy button
 
 ```bash
 node scripts/finalize.mjs "/absolute/path/draft.json" --context "/absolute/path/context.json" --out "/absolute/path/config.json"
 ```
 
-The gate validates the candidate, copies its exact bytes without overwriting existing files, rereads and revalidates the output, and writes a separate `config.json.validation.json` receipt with hashes. A failed check creates no ready deliverable. If it reports errors, repair the draft and rerun; do not invent a receipt or bypass the gate. Use a fresh filename when an output already exists.
+Choose a fresh output filename. This mandatory gate validates before and after copying, verifies file identity/bytes, and writes:
 
-Attach that exact finalized JSON file using the Bot's real file-delivery tool. Do not paste, pretty-print, reserialize, Markdown-wrap URLs or edit it after finalization. Verify the attached file resolves to the finalized bytes when the file tool permits it. If attachment delivery is unavailable, explain the blocker and do not label a chat transcript as a checked configuration. Share the separate receipt only when useful; it must never be added to the envelope.
+- `config.json`: the exact checked configuration.
+- `config.json.copy.html`: an offline HTML viewer with a real **Copy config JSON** button. It verifies the embedded bytes and copies the original text, without reserialization, Markdown conversion or network requests.
+- `config.json.validation.json`: a separate hash receipt, never part of the configuration envelope.
 
-Ask the user to import the JSON file into Share & Act. Importing/saving updates the App; a Bot conversation cannot directly change an App rule. The App can additionally reject saving due to plan capacity, deleted Bots, stale state or missing authorization. A webhook HTTP acceptance is not proof of business completion.
+Attach the finalized JSON and copy helper unchanged using real file-delivery tools. If the platform can render HTML interactively, present the helper as an interactive artifact; otherwise attach it and tell the user to open it in a browser. Do not claim that a native Bot button exists merely because a message contains a button label. Clipboard failures must be reported honestly; the original JSON remains importable.
 
-For runtime execution, read [runtime protocols](references/runtime.md). Runtime payloads and rule-configuration envelopes are different schemas.
+Do not edit, retype, pretty-print or wrap the JSON after finalization. Verify attachment bytes when supported. If file delivery is unavailable, report that limitation rather than presenting reformatted chat content as the checked file. The user can import the JSON or copy the helper's exact text into the App.
+
+## Scope of a passing result
+
+Evidence binds the exact configuration, context and approved contract. It does not prove live Bot existence, plan capacity, OAuth, destinations, external tools or remote execution. App save-time state can still block a valid file. This skill only certifies configuration compliance within its tested contract.

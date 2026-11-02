@@ -1,16 +1,12 @@
-# Final verification: exact-file delivery
+# Compliance-only configuration and copy delivery
 
-- 52 Node.js regression tests passed.
-- 38 App-source consistency cases passed, including current import diagnostics and all five template fixtures.
-- 34 actual-finalizer delivery cases passed: valid files are byte-identical to checked drafts; invalid inputs create no ready output or receipt.
-- The oracle compiles the unmodified App diagnostics entrypoint, envelope decoder, Bot policy, actual sample catalog and core validators/request builder. Compile-only R/RawRes stubs replace resource IDs and annotations.
-- Corruption coverage includes raw newlines and quotes, Markdown-wrapped URLs/trailing links, duplicate fields, UTF-8 BOMs, unknown contracts, bad Bot IDs, template/reference errors, sample mismatch and request-size limits.
-- Finalization validates before and after writing and checks output identity/bytes again before returning a separate hash receipt. Existing output/receipt files are not overwritten.
-- Independent read-only review rechecked output mutation and inode replacement regressions, BOM behavior, evidence bindings and App contract-pin agreement.
-- Source checks, Skill frontmatter validation and English-only artifact checks passed before publishing.
+- 58 Node.js regression tests passed.
+- 38 App-source consistency cases passed; caller-provided instruction content and output format are preserved.
+- 32 actual-finalizer delivery cases passed using three generic TEXT/LINK/FILE fixtures.
+- Current Skill guidance contains no business playbooks or business-template fixtures. It does not configure services, choose destinations or execute instructions.
+- The oracle compiles the actual task-neutral App catalog, diagnostics and decoder. Business-example and configuration-generation classes are not included in the validator JAR.
+- Finalization produces unchanged JSON, a separate receipt and a real offline HTML copy button. Payloads are base64 data rendered with textContent under a hash-pinned CSP; clipboard denial is reported honestly.
+- Browser checks confirmed successful integrity initialization, an enabled 48px copy button, selectable raw JSON and no rendered HTML children inside the JSON view. Automated tests verified exact clipboard text and inert HTML-like payloads.
+- Independent review rechecked scope isolation, output-format preservation, copy-helper CSP/data isolation and independent cleanup of failed delivery artifacts.
 
-The Skill build does not modify the Android project. The parent task separately updated the App's validation-profile pin and JSON-attachment instructions under user authorization. Live OAuth, plan capacity, service permissions, remote writes and edits made after finalization are not covered by offline evidence. Attach the finalized file unchanged, verify attachment bytes when supported and import the file into the App rather than pasting rendered chat JSON.
-
-## Smart PDF routing revision
-
-The PDF playbook, fixture and App example now choose an existing destination for each document using its filename and actual content. Saved folder IDs identify an authorized scope, not a fixed leaf destination. Ambiguous, unreadable or unmatched documents require user clarification before filing. No automatic folder creation, last-folder reuse or unrelated content processing is authorized. A read-only five-scenario review confirmed these boundaries.
+Offline evidence certifies structural compliance for the approved profile, not live account state or business correctness. The HTML helper is not a claimed native Bot control: unsupported platforms receive a file to open in a browser. App runtime setup and business examples are maintained outside this Skill.
