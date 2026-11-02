@@ -15,6 +15,8 @@ try{
   assert.deepEqual(fs.readFileSync(output),fs.readFileSync(input));
   assert.equal(receipt.configuration_sha256,hash(fs.readFileSync(output)));
   assert.equal(receipt.validation.oracle.codec_accepted,true);assert.equal(receipt.validation.oracle.request_builds,true);
+  assert.equal(receipt.native_page_created,false);assert.equal(receipt.page_publication_required,true);
+  const pageSource=fs.readFileSync(output+'.page.tsx');assert.equal(receipt.copy_helper_sha256,hash(pageSource));assert.ok(pageSource.toString().includes('from "grok/canvas"'));
   results.push({name,delivered:true,sha256:receipt.configuration_sha256});
  }
  for(const c of cases.filter(c=>!c.preflight||!c.codec||c.dry===false)){

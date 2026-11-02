@@ -7,7 +7,7 @@ import {hash,sourceRoot,fail} from './common.mjs';
 
 /** The CLI has no validation bypass. Injection is an explicit unit-test seam only. */
 export function finalizeConfig(input,context,output,{validator=validate,validationOptions={}}={}){
- const receiptPath=output+'.validation.json',copyPath=output+'.copy.html';
+ const receiptPath=output+'.validation.json',copyPath=output+'.page.tsx';
  if(fs.existsSync(output)||fs.existsSync(receiptPath)||fs.existsSync(copyPath))throw Error('output_already_exists');
  const bytes=fs.readFileSync(input);if(bytes.length>1048576)throw Error('file_too_large');
  const decode=b=>new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(b);
@@ -28,7 +28,7 @@ export function finalizeConfig(input,context,output,{validator=validate,validati
   ensureUnchanged();
   const copyBytes=Buffer.from(createCopyPage(finalBytes,hash(finalBytes)));
   const copyFd=fs.openSync(copyPath,'wx',0o600);copyCreated=true;try{fs.writeFileSync(copyFd,copyBytes);fs.fsyncSync(copyFd);}finally{fs.closeSync(copyFd);}
-  const receipt={copy_helper_sha256:hash(copyBytes),delivery_format:'json_file_attachment',configuration_sha256:hash(finalBytes),context_sha256:result.context_sha256,contract_id:result.contract_id,validation:{ok:true,oracle:{codec_accepted:result.oracle?.codec_accepted,dry_run_passed:result.oracle?.dry_run_passed,request_builds:result.oracle?.request_builds},live_service_readiness_checked:false}};
+  const receipt={native_page_created:false,page_publication_required:true,copy_helper_sha256:hash(copyBytes),delivery_format:'json_file_and_native_grok_page_source',configuration_sha256:hash(finalBytes),context_sha256:result.context_sha256,contract_id:result.contract_id,validation:{ok:true,oracle:{codec_accepted:result.oracle?.codec_accepted,dry_run_passed:result.oracle?.dry_run_passed,request_builds:result.oracle?.request_builds},live_service_readiness_checked:false}};
   const receiptFd=fs.openSync(receiptPath,'wx',0o600);receiptCreated=true;try{fs.writeFileSync(receiptFd,JSON.stringify(receipt,null,2)+'\n');}finally{fs.closeSync(receiptFd);}
   ensureUnchanged();
   if(!fs.readFileSync(copyPath).equals(copyBytes))throw Error('copy_helper_changed');
@@ -45,6 +45,6 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   if(!args[0]||!args.includes('--context')||!args.includes('--out'))throw Error('usage: finalize.mjs INPUT.json --context CONTEXT.json --out FINAL.json [--source ANDROID_SOURCE]');
   const context=parseStrict(fs.readFileSync(get('--context'),'utf8'));
   const receipt=finalizeConfig(args[0],context,get('--out'),{validationOptions:{source:sourceRoot(args.includes('--source')?get('--source'):null)}});
-  console.log(JSON.stringify({ok:true,configuration_file:path.resolve(get('--out')),receipt_file:path.resolve(get('--out')+'.validation.json'),copy_helper_file:path.resolve(get('--out')+'.copy.html'),...receipt},null,2));
+  console.log(JSON.stringify({ok:true,configuration_file:path.resolve(get('--out')),receipt_file:path.resolve(get('--out')+'.validation.json'),copy_helper_file:path.resolve(get('--out')+'.page.tsx'),...receipt},null,2));
  }catch(e){fail(e.message);}
 }

@@ -44,6 +44,6 @@ Use JSON serialization: embedded newlines are `\n`, embedded quotes are `\"`, an
 
 ## Exact-file delivery
 
-`finalize.mjs` preserves the validated bytes and creates an offline copy helper plus a separate receipt. The helper's button copies decoded original text, not a reserialized object. An instruction can contain arbitrary text, including HTML-like data: it is encoded as data and displayed with textContent, never executed as markup. Clipboard permission failures do not count as successful copying.
+`finalize.mjs` preserves the validated bytes and creates native Page TSX source plus a separate receipt. The native Page button copies the embedded original text, not a reserialized object. An instruction can contain arbitrary text, including HTML-like data: it is encoded as a string and rendered as React text, never executed as markup. Clipboard permission failures do not count as successful copying.
 
 Neither syntax validation nor file hashes establish real service permissions, factual correctness or successful business execution.

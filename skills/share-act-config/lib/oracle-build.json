@@ -1,6 +1,6 @@
 {
-  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
-  "implementation_hash": "9da10d22db4c8bdd17eeb80d982facb0d3280e12216c1a76484a09c6c4073097",
+  "contract_id": "bf293fd5c1a597902e66748b38115e6c2de6b7fbfe68c30481bb9efb253d888a",
+  "implementation_hash": "53ec967a9624f44ec09797f2b36c47f25a7dd29190a12530a5b4ce45825a691b",
   "jar_sha256": "03dd2543f266f1fea93477587ab628aa871e3ea2ec62de1e1b5f4f5d0d8c260b",
   "codec": "Unmodified Android RuleWizardEnvelopeCodec",
   "sample_adapter": "Unmodified task-neutral App protocol catalog; no resource or business-template classes",

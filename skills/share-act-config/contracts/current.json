@@ -1,13 +1,13 @@
 {
   "manifest_version": 1,
-  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
-  "source_snapshot_id": "f93212ce2353f562e55ef2aeee8418a1899acbb461699ba47321608e1c4e2ab1",
+  "contract_id": "bf293fd5c1a597902e66748b38115e6c2de6b7fbfe68c30481bb9efb253d888a",
+  "source_snapshot_id": "9d7e795a66781cee3e9b591258cdcf4f8f80d79f70c43f792c5d0cf970a77591",
   "envelope_version": 1,
   "configuration_schema_version": 2,
   "app": {
     "application_id": "ltd.tcool.android.shareact",
-    "version_name": "0.1.3",
-    "version_code": 5
+    "version_name": "0.1.4",
+    "version_code": 6
   },
   "toolchain": {
     "kotlin": "2.2.20",
@@ -34,16 +34,16 @@
     }
   ],
   "source_hashes": {
-    "app/build.gradle.kts": "dddd298d6c6d50d70a1a9e398e1ced2c1aa2ff8ff1d14be43cdf131774ff2ff4",
+    "app/build.gradle.kts": "748e980a5beb108553fcaa4bbbba4a00aca067ba9a59257ab4c9eb72d751c0cb",
     "app/src/main/java/shareact/android/data/RuleRepository.kt": "ce21d3fdf3ea4950a640c9302e53d6c61394fa0f5a39703c1a5f469dc4ff61ee",
     "app/src/main/java/shareact/android/rules/AndroidTextCaseFolder.kt": "e1776c128fcaffa6f9502c528cc3b10d3abb4657640151c7339e8bd67c373e56",
     "app/src/main/java/shareact/android/rules/BotActionPolicy.kt": "7ae368fb8b4e4e438b4b1e623c2b7ca52f4e2c5579f55a18fad8b5b794872ca0",
     "app/src/main/java/shareact/android/ui/rules/RuleConfigurationDiagnostics.kt": "488a2380bfe2b2e2b619ffd6e754d53446ffd01807428f37f303a1d94c744978",
     "app/src/main/java/shareact/android/ui/rules/RuleTestViewModel.kt": "f46aea49441b485d0c8ea6373de57afc8820d46058f98e513cf52c2c246d3df1",
     "app/src/main/java/shareact/android/ui/rules/RuleWizardEnvelope.kt": "4ee1c0a45e11ddd96a542373dd3e95e1cda404c6e91eb93383ce9dd1146bbaa4",
-    "app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt": "1a5ca88aba3b6bfe58cc778106906891bc053679f258b17dd1c122e2660c0881",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt": "d8ed22b1cfbc71a5ee7788c00a8a09523570aa528a5d01837d9d2abe2a9c6741",
     "app/src/main/java/shareact/android/ui/rules/RuleWizardTestFileCatalog.kt": "b55f4c823cffb8839a0456d45e0e91ec1e027ff48ee87c1d2a1ecc300bb59d62",
-    "app/src/main/java/shareact/android/ui/rules/RulesWorkspace.kt": "2babed3fbdd15c78f1885a9fd126f27a1b06d668223020a48061d3d4e8e3d81d",
+    "app/src/main/java/shareact/android/ui/rules/RulesWorkspace.kt": "2cea22bb408717903ab5c84103dad3cfbc0285a64c0b7d7dfe2a79aa47e1fb92",
     "app/src/main/res/values-en/grok-setup.xml": "20c94ed79975f60e05047f9647501554c30a138544a1d5e28ad7eb791e02668e",
     "core/build.gradle.kts": "87d25ea589e9326b262c2c039d3be40156f39d06925d95556d81fc8a6bea1041",
     "core/src/main/kotlin/shareact/core/configuration/Configuration.kt": "5a8ad7ca55bd19ecb0fd3e0c4772f340b436af5981fdccfedfc11b79205cd9b4",

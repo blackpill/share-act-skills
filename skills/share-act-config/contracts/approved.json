@@ -1,8 +1,8 @@
 {
-  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
-  "implementation_hash": "9da10d22db4c8bdd17eeb80d982facb0d3280e12216c1a76484a09c6c4073097",
-  "evidence_hash": "7cf57dfbe3144a443ab007e52184d45cc2a83df1b39fbbfbd950eaced4650fa6",
+  "contract_id": "bf293fd5c1a597902e66748b38115e6c2de6b7fbfe68c30481bb9efb253d888a",
+  "implementation_hash": "53ec967a9624f44ec09797f2b36c47f25a7dd29190a12530a5b4ce45825a691b",
+  "evidence_hash": "2bc97f7b58f7d98006eb5593b219a03f00bdd3f13f687bda1749f8177dcd84e6",
   "jar_sha256": "03dd2543f266f1fea93477587ab628aa871e3ea2ec62de1e1b5f4f5d0d8c260b",
-  "delivery_report_sha256": "6bcaab9b317b23a27e62b5305b320cf9f888a218419426e1a3e3fb1045adb407",
-  "consistency_report_sha256": "35fa0f7221b460b41ec0983d9d81034b8d7fd387b9e5989989ade8aa6434f2dd"
+  "delivery_report_sha256": "25252bccc1c125cd63bc45afea4554be2fe67c3e7bbf9303cdb04ab9a05f8ca7",
+  "consistency_report_sha256": "0d98732a641cbca58cf7438fa66a32129304d1a84121ec62d4be5cb7629cd96f"
 }

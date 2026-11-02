@@ -4,7 +4,7 @@ The contract fingerprints actual import/validation sources, dependencies and the
 
 A hash identifies a reviewed source profile, not an installed APK or a publisher signature. Distribute artifacts through a trusted repository. Unknown versions require explicit maintenance rather than guessed migration.
 
-From the development project root:
+From the development project root (run `npm ci --ignore-scripts` first):
 
 ```bash
 npm run check:source -- --source "/absolute/path/ShareAct-Android"
@@ -20,6 +20,6 @@ npm run package
 
 Review source differences before approval. Synchronization invalidates old approval/build metadata. The build reads the App checkout but writes only to this project and normal tool caches. It compiles the actual diagnostics, decoder, admission policy, task-neutral resource catalog and required core logic. Business-example classes and configuration-generation prompts are not included in the oracle.
 
-Tests and generated generic fixtures are bound to approval/package evidence. Finalization tests additionally cover exact copying, corruption rejection, receipt separation, HTML data encoding and clipboard failure reporting. Only tested approved artifacts can be packaged.
+Tests and generated generic fixtures are bound to approval/package evidence. Finalization tests additionally cover exact copying, corruption rejection, receipt separation, native Page source encoding, reference-API TypeScript checks and clipboard success/failure reporting. Only tested approved artifacts can be packaged.
 
 A portable runtime cannot discover a newer App release by itself. Provide the trusted current profile or run source checks in release automation. A source identity mismatch, missing execution tools or failed integrity check blocks a validated-delivery claim.

@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
+  "contract_id": "bf293fd5c1a597902e66748b38115e6c2de6b7fbfe68c30481bb9efb253d888a",
   "configuration_sha256": "6308a3e202c0444c40af28d3519b7b4dc1c51bbcf122242c20a8513199df4e03",
-  "context_sha256": "00c2625f02bf87bff6aeb5d015f7237334c51cb63ffb59a139254ddf34a70f46",
+  "context_sha256": "c06273b9d667603fffbb60144ffe8cdbd9ab2115f5378450b0b67312bdf838b2",
   "oracle": {
     "codec_accepted": true,
     "sample_matches": true,

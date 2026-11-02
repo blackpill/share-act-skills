@@ -12,4 +12,4 @@ export function sourceRoot(explicit){return explicit||process.env.SHAREACT_ANDRO
 export function implementationHash(){const files=[...walk(path.join(skillRoot,'scripts')).filter(p=>p.endsWith('.mjs')),...walk(path.join(skillRoot,'oracle')).filter(p=>!p.includes('/build/')&&!p.includes('/.gradle/')&&(/\.kt$|\.kts$/.test(p)))];return hash(JSON.stringify(files.map(p=>[path.relative(skillRoot,p),hash(fs.readFileSync(p))])));}
 export function fail(error,details){console.error(JSON.stringify({ok:false,error,details}));process.exitCode=1;}
 
-export function evidenceHash(){const files=[...walk(path.join(projectRoot,'tests')),...walk(path.join(skillRoot,'examples'))];return hash(JSON.stringify(files.map(p=>[path.relative(projectRoot,p),hash(fs.readFileSync(p))])));}
+export function evidenceHash(){const files=[...walk(path.join(projectRoot,'tests')),...walk(path.join(skillRoot,'examples')),...['package.json','package-lock.json'].map(n=>path.join(projectRoot,n)).filter(p=>fs.existsSync(p))];return hash(JSON.stringify(files.map(p=>[path.relative(projectRoot,p),hash(fs.readFileSync(p))])));}

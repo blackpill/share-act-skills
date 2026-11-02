@@ -3,3 +3,5 @@
 skills/share-act-config/oracle/.gradle/
 skills/share-act-config/oracle/build/
 dist/
+
+node_modules/

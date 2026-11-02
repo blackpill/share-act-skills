@@ -63,12 +63,14 @@ node scripts/finalize.mjs "/absolute/path/draft.json" --context "/absolute/path/
 Choose a fresh output filename. This mandatory gate validates before and after copying, verifies file identity/bytes, and writes:
 
 - `config.json`: the exact checked configuration.
-- `config.json.copy.html`: an offline HTML viewer with a real **Copy config JSON** button. It verifies the embedded bytes and copies the original text, without reserialization, Markdown conversion or network requests.
+- `config.json.page.tsx`: source for a native Grok Bot Page using `grok/canvas` (`Page`, `Section`, `Text`, `Button`, `useState`, `useGrokTheme`). It embeds the checked text as a safely encoded string; no object reserialization or browser cryptography gate is involved.
 - `config.json.validation.json`: a separate hash receipt, never part of the configuration envelope.
 
-Attach the finalized JSON and copy helper unchanged using real file-delivery tools. If the platform can render HTML interactively, present the helper as an interactive artifact; otherwise attach it and tell the user to open it in a browser. Do not claim that a native Bot button exists merely because a message contains a button label. Clipboard failures must be reported honestly; the original JSON remains importable.
+Attach the finalized JSON unchanged. Then use Grok Bot's actual native Page creation/update tool with the generated TSX source, rather than attaching HTML or only returning a TSX download. Keep the Page private to the current user/Bot; do not publish configuration data publicly. Preserve the source's embedded text unchanged. Obtain a real created Page reference/link and verify that it rendered a Button before reporting that the copy Page is available. Do not invent a tool name, link, native control or successful publication.
 
-Do not edit, retype, pretty-print or wrap the JSON after finalization. Verify attachment bytes when supported. If file delivery is unavailable, report that limitation rather than presenting reformatted chat content as the checked file. The user can import the JSON or copy the helper's exact text into the App.
+The Page attempts synchronous textarea selection plus `document.execCommand("copy")` during the click gesture only when textarea.value preserves the original text; CR/CRLF normalization skips this path. If that fails, it awaits `navigator.clipboard.writeText`; only a true result shows "Copied". Both failures show selectable JSON and an explicit manual-copy/import fallback. The local receipt says `native_page_created: false`: finalization produces source, not a hosted Page. Native Page creation must be confirmed separately. If the tool is unavailable, explain that limitation and provide the validated JSON attachment without pretending an ordinary HTML page is equivalent.
+
+Do not edit, retype, pretty-print or wrap the JSON after finalization. Verify attachment bytes when supported. If file delivery is unavailable, report that limitation rather than presenting reformatted chat content as the checked file. The user can import the JSON or click the rendered native Page's copy button to paste the original text into the App.
 
 ## Scope of a passing result
 

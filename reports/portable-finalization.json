@@ -1,10 +1,12 @@
 {
   "ok": true,
-  "copy_helper_sha256": "c81f3fed6451b8daa80fbd06598761d78919d865d6b0d1a8fd6aefdffb6437bd",
-  "delivery_format": "json_file_attachment",
+  "native_page_created": false,
+  "page_publication_required": true,
+  "copy_helper_sha256": "9319b42d365ab28a0d367574fafc946bff0a7fa865a136a53204cfe2ce6fd375",
+  "delivery_format": "json_file_and_native_grok_page_source",
   "configuration_sha256": "6308a3e202c0444c40af28d3519b7b4dc1c51bbcf122242c20a8513199df4e03",
-  "context_sha256": "00c2625f02bf87bff6aeb5d015f7237334c51cb63ffb59a139254ddf34a70f46",
-  "contract_id": "4743f99c6604d6fdf4c127fed388df8b0e15f6381d5e7bdb36778b06463d46ae",
+  "context_sha256": "c06273b9d667603fffbb60144ffe8cdbd9ab2115f5378450b0b67312bdf838b2",
+  "contract_id": "bf293fd5c1a597902e66748b38115e6c2de6b7fbfe68c30481bb9efb253d888a",
   "validation": {
     "ok": true,
     "oracle": {
