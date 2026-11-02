@@ -1,0 +1,8 @@
+{
+  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+  "implementation_hash": "de08d1f2c3992217d88631a638b6455a92bbb19ea636d40336f10bf952d63e04",
+  "jar_sha256": "36943d59c74bd1270c53f6416cffa1316368cdae04fc9ae2b58ef3fe18647a3d",
+  "codec": "Unmodified Android RuleWizardEnvelopeCodec",
+  "sample_adapter": "Unmodified App catalog; compile-only R and RawRes stubs",
+  "case_folding": "ICU4J 77.1; Android ICU version may differ"
+}

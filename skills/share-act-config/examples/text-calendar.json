@@ -1,0 +1,45 @@
+{
+  "envelope_version": 1,
+  "rule": {
+    "id": "text-calendar",
+    "version": 1,
+    "position": 0,
+    "name": "text calendar",
+    "groups": [
+      [
+        {
+          "type": "shareact.core.model.Condition.Type",
+          "value": "TEXT"
+        }
+      ]
+    ],
+    "templateRef": {
+      "id": "text-calendar-template",
+      "version": 1
+    },
+    "action": {
+      "type": "shareact.core.model.Action.Webhook",
+      "connectionId": "selected-bot-fixture"
+    },
+    "enabled": true,
+    "executionMode": "CONFIRM",
+    "grant": null
+  },
+  "template": {
+    "id": "text-calendar-template",
+    "version": 1,
+    "instruction": "Extract the title, date, time, time zone and location from {{text}}. Use calendar_id=fixture-calendar, time_zone=UTC, calendar_url=https://calendar.google.com/. Confirm ambiguity before creating an event. Deduplicate only with verified persistent state. This destination is a fixture.",
+    "outputPreferences": {
+      "language": "en",
+      "format": "markdown"
+    }
+  },
+  "test_input": {
+    "type": "TEXT",
+    "text": "Team meeting on 2026-11-03 at 10:00 UTC in London",
+    "subject": "",
+    "url": null,
+    "mime_type": "text/plain",
+    "file_name": null
+  }
+}

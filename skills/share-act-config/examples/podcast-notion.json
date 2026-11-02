@@ -1,0 +1,53 @@
+{
+  "envelope_version": 1,
+  "rule": {
+    "id": "podcast-notion",
+    "version": 1,
+    "position": 0,
+    "name": "podcast notion",
+    "groups": [
+      [
+        {
+          "type": "shareact.core.model.Condition.Type",
+          "value": "LINK"
+        },
+        {
+          "type": "shareact.core.model.Condition.Domain",
+          "value": "open.spotify.com"
+        },
+        {
+          "type": "shareact.core.model.Condition.PathPrefix",
+          "value": "/episode/"
+        }
+      ]
+    ],
+    "templateRef": {
+      "id": "podcast-notion-template",
+      "version": 1
+    },
+    "action": {
+      "type": "shareact.core.model.Action.Webhook",
+      "connectionId": "selected-bot-fixture"
+    },
+    "enabled": true,
+    "executionMode": "CONFIRM",
+    "grant": null
+  },
+  "template": {
+    "id": "podcast-notion-template",
+    "version": 1,
+    "instruction": "Read an available transcript for {{url}}, or transcribe legally accessible audio with an actual available tool. Never invent transcript content or bypass access controls. Save title, transcript and source URL to page_id=fixture-page, page_url=https://www.notion.so/fixture-page after authorization. This is a fixture, not a verified live destination.",
+    "outputPreferences": {
+      "language": "en",
+      "format": "markdown"
+    }
+  },
+  "test_input": {
+    "type": "LINK",
+    "text": "Podcast episode access test",
+    "subject": "",
+    "url": "https://open.spotify.com/episode/1TlNXfKkC732xX1AuCMeXp",
+    "mime_type": "text/plain",
+    "file_name": null
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+  "implementation_hash": "de08d1f2c3992217d88631a638b6455a92bbb19ea636d40336f10bf952d63e04",
+  "evidence_hash": "2bf773ae24bc54728277a9e5aea2839a6b0474293379348e5d574fe9ddc5a835",
+  "jar_sha256": "36943d59c74bd1270c53f6416cffa1316368cdae04fc9ae2b58ef3fe18647a3d",
+  "consistency_report_sha256": "fdd485bbb6d8c601305bfe50802f6f70aea811bf73352a946f2cc92f4aad4bac"
+}

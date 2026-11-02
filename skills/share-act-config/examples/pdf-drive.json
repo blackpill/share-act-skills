@@ -1,0 +1,49 @@
+{
+  "envelope_version": 1,
+  "rule": {
+    "id": "pdf-drive",
+    "version": 1,
+    "position": 0,
+    "name": "pdf drive",
+    "groups": [
+      [
+        {
+          "type": "shareact.core.model.Condition.Type",
+          "value": "FILE"
+        },
+        {
+          "type": "shareact.core.model.Condition.MimeType",
+          "value": "application/pdf"
+        }
+      ]
+    ],
+    "templateRef": {
+      "id": "pdf-drive-template",
+      "version": 1
+    },
+    "action": {
+      "type": "shareact.core.model.Action.Webhook",
+      "connectionId": "selected-bot-fixture"
+    },
+    "enabled": true,
+    "executionMode": "CONFIRM",
+    "grant": null
+  },
+  "template": {
+    "id": "pdf-drive-template",
+    "version": 1,
+    "instruction": "Use the existing files[].file_id and file it under verified folder_id=fixture-folder, folder_url=https://drive.google.com/drive/folders/fixture-folder. Never make the file public or upload a duplicate. These identifiers are test fixtures.",
+    "outputPreferences": {
+      "language": "en",
+      "format": "markdown"
+    }
+  },
+  "test_input": {
+    "type": "FILE",
+    "text": "PDF report",
+    "subject": "",
+    "url": null,
+    "mime_type": "application/pdf",
+    "file_name": "Quarterly-report.pdf"
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "ok": true,
+  "oracle_description": {
+    "sample_files": [
+      {
+        "file_name": "Quarterly-report.pdf",
+        "mime_type": "application/pdf"
+      },
+      {
+        "file_name": "Invoice-2048.pdf",
+        "mime_type": "application/pdf"
+      },
+      {
+        "file_name": "Studio-photo.jpg",
+        "mime_type": "image/jpeg"
+      },
+      {
+        "file_name": "App-screenshot.png",
+        "mime_type": "image/png"
+      }
+    ],
+    "template_bytes": 8192,
+    "import_bytes": 1048576,
+    "request_bytes": 131072
+  },
+  "evidence_hash": "2bf773ae24bc54728277a9e5aea2839a6b0474293379348e5d574fe9ddc5a835",
+  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+  "implementation_hash": "de08d1f2c3992217d88631a638b6455a92bbb19ea636d40336f10bf952d63e04",
+  "jar_sha256": "36943d59c74bd1270c53f6416cffa1316368cdae04fc9ae2b58ef3fe18647a3d",
+  "source_check": {
+    "ok": true,
+    "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+    "changed": []
+  },
+  "case_count": 33,
+  "results": [
+    {
+      "name": "request-escaping-exceeds-wire-limit",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "request_too_large"
+    },
+    {
+      "name": "valid-FILE",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "valid-LINK",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "valid-TEXT",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "wrong-bot",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "bot_scope_mismatch"
+    },
+    {
+      "name": "future-version",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "unsupported_envelope_version"
+    },
+    {
+      "name": "extra-top-field",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "unexpected_or_missing_fields:envelope"
+    },
+    {
+      "name": "reference-mismatch",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "template_reference_mismatch"
+    },
+    {
+      "name": "unknown-sample",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "unknown_test_file"
+    },
+    {
+      "name": "mime-extension-mismatch",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_file_sample"
+    },
+    {
+      "name": "sample-does-not-match",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "sample_does_not_match_rule"
+    },
+    {
+      "name": "unknown-variable",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "missing-variable-on-file",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "missing_variable_url"
+    },
+    {
+      "name": "oversized-template",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "empty-groups",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "too-many-conditions",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "non-webhook",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "unexpected_or_missing_fields:action"
+    },
+    {
+      "name": "bad-domain",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "bad-path",
+      "strict_policy": true,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_configuration"
+    },
+    {
+      "name": "grant-import",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "unsafe_generation_defaults"
+    },
+    {
+      "name": "non-canonical-safety",
+      "strict_policy": false,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": false,
+      "error": "unsafe_generation_defaults"
+    },
+    {
+      "name": "disabled-normalized-by-app",
+      "strict_policy": false,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": false,
+      "error": "unsafe_generation_defaults"
+    },
+    {
+      "name": "missing-default-fields",
+      "strict_policy": false,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": false,
+      "error": "unexpected_or_missing_fields:test_input"
+    },
+    {
+      "name": "malformed-json",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_json"
+    },
+    {
+      "name": "markdown-fence",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_json"
+    },
+    {
+      "name": "duplicate-root-key",
+      "strict_policy": false,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": false,
+      "error": "duplicate_json_key"
+    },
+    {
+      "name": "wrong-language-normalized-by-app",
+      "strict_policy": false,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": false,
+      "error": "output_preferences_mismatch"
+    },
+    {
+      "name": "surrogate",
+      "strict_policy": false,
+      "android_codec": false,
+      "dry_run": false,
+      "delivery_gate": false,
+      "error": "invalid_unicode"
+    },
+    {
+      "name": "template-amazon-monitor.json",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "template-food-calories.json",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "template-pdf-drive.json",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "template-podcast-notion.json",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    },
+    {
+      "name": "template-text-calendar.json",
+      "strict_policy": true,
+      "android_codec": true,
+      "dry_run": true,
+      "delivery_gate": true,
+      "error": null
+    }
+  ],
+  "scope": "Unmodified App envelope decoder plus core validation, unmodified App sample catalog with resource stubs, core request building, and supplementary ICU4J sample matching/rendering. No Android instrumentation or live account writes."
+}

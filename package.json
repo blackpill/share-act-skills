@@ -1,0 +1,16 @@
+{
+  "name": "share-act-skills",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "sync": "node skills/share-act-config/scripts/contract.mjs sync",
+    "check:source": "node skills/share-act-config/scripts/contract.mjs check",
+    "build:oracle": "node skills/share-act-config/scripts/build-oracle.mjs",
+    "test:consistency": "node tests/consistency.mjs",
+    "approve": "node skills/share-act-config/scripts/contract.mjs approve",
+    "package": "node skills/share-act-config/scripts/package.mjs"
+  }
+}

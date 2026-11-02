@@ -1,0 +1,80 @@
+{
+  "manifest_version": 1,
+  "contract_id": "9d7ead70d42b2da6cd2f5f667c35e0c102f1c2737b52a2f417e60df63a259fc6",
+  "envelope_version": 1,
+  "configuration_schema_version": 2,
+  "runtime_protocols": [
+    "schema_version=1: task_id,input,instruction,output_preferences",
+    "attachments: task_id,files,rule"
+  ],
+  "app": {
+    "application_id": "ltd.tcool.android.shareact",
+    "version_name": "0.1.3",
+    "version_code": 5
+  },
+  "toolchain": {
+    "kotlin": "2.2.20",
+    "serialization": "1.9.0",
+    "jsoup": "1.21.2",
+    "icu4j": "77.1"
+  },
+  "sample_files": [
+    {
+      "file_name": "Quarterly-report.pdf",
+      "mime_type": "application/pdf"
+    },
+    {
+      "file_name": "Invoice-2048.pdf",
+      "mime_type": "application/pdf"
+    },
+    {
+      "file_name": "Studio-photo.jpg",
+      "mime_type": "image/jpeg"
+    },
+    {
+      "file_name": "App-screenshot.png",
+      "mime_type": "image/png"
+    }
+  ],
+  "source_hashes": {
+    "app/build.gradle.kts": "dddd298d6c6d50d70a1a9e398e1ced2c1aa2ff8ff1d14be43cdf131774ff2ff4",
+    "app/src/main/java/shareact/android/attachments/GrokRoutineWebhook.kt": "ec50ec423188d18c8bdc58e92f7f2794365c8fe0376e94a97e36edfd07026fd3",
+    "app/src/main/java/shareact/android/data/RuleRepository.kt": "ce21d3fdf3ea4950a640c9302e53d6c61394fa0f5a39703c1a5f469dc4ff61ee",
+    "app/src/main/java/shareact/android/rules/AndroidTextCaseFolder.kt": "e1776c128fcaffa6f9502c528cc3b10d3abb4657640151c7339e8bd67c373e56",
+    "app/src/main/java/shareact/android/rules/BotActionPolicy.kt": "7ae368fb8b4e4e438b4b1e623c2b7ca52f4e2c5579f55a18fad8b5b794872ca0",
+    "app/src/main/java/shareact/android/ui/rules/BuiltInRuleSelection.kt": "ddbe6168ae3b0bcab45208f5f7dfb440db5f4ebba6c6d3a2c1d05367b4654955",
+    "app/src/main/java/shareact/android/ui/rules/RuleTestViewModel.kt": "f46aea49441b485d0c8ea6373de57afc8820d46058f98e513cf52c2c246d3df1",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardEnvelope.kt": "1cdcd070dd8e80575d37184df05baeea6e29d48aa5eacf49dcfce2b2ab837ff5",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardPrompt.kt": "02bcbda00d529bd7b523609af74ff60689714813b4f3b40600e08124621d60e0",
+    "app/src/main/java/shareact/android/ui/rules/RuleWizardSamples.kt": "c60751f2fa450123015c6cb5a45850e305132ec9a4fa8c5480ea0fb2f0c11633",
+    "app/src/main/java/shareact/android/ui/rules/RulesWorkspace.kt": "7b68f175a090f1fc55e5ca0e46ced5764981512c55b3574c6da7392e928951a0",
+    "app/src/main/res/raw/sample_invoice.pdf": "f753efa292d25c38a1e94b39499544b985747701f5e6128e70cc87d60f67a018",
+    "app/src/main/res/raw/sample_photo.jpg": "2d58fbd50796e1e4ba5a36d062c7c02465522a29eaa91345b5e69f9d5ec4ce86",
+    "app/src/main/res/raw/sample_quarterly_report.pdf": "2b60f49017540ee096e23b20a30fb7702b341399296f0135020a490be408c2f5",
+    "app/src/main/res/raw/sample_screenshot.png": "04edad16efb3f2f006876333e2af4e49052d55974bca0a4ce4e702139b329eb9",
+    "app/src/main/res/values-en/grok-setup.xml": "83c51c930855289422875ce2a41f46b3cd47634c63622a7fc853012170bd64f0",
+    "core/build.gradle.kts": "87d25ea589e9326b262c2c039d3be40156f39d06925d95556d81fc8a6bea1041",
+    "core/src/main/kotlin/shareact/core/configuration/Configuration.kt": "5a8ad7ca55bd19ecb0fd3e0c4772f340b436af5981fdccfedfc11b79205cd9b4",
+    "core/src/main/kotlin/shareact/core/configuration/ConfigurationJsonInput.kt": "1ca3653695032147510ac3636619ff84e46266bc362d880fefd98e7f3267f0ae",
+    "core/src/main/kotlin/shareact/core/configuration/ConfigurationPrompt.kt": "5ceda2be861278cc576f1e01cc0932c7c6a5d7742aa5893482c751b2f12a796f",
+    "core/src/main/kotlin/shareact/core/configuration/ConnectionConfigurationScope.kt": "5094fffdfa0e321b7ff0db1d6c123d21f76007d3cfad4be99141b88b4911c68c",
+    "core/src/main/kotlin/shareact/core/delivery/RetryPolicy.kt": "8f17ee2629751f01ca5ce45ecd473460bf3c9261ac9febf482fa26f4cd7f5bff",
+    "core/src/main/kotlin/shareact/core/delivery/TaskStateMachine.kt": "3f2fcb81e789af698e3362a1194a9a6833a6bbf4f85bfe035f7483be315f71b8",
+    "core/src/main/kotlin/shareact/core/input/InputNormalizer.kt": "8e675df1a5c957bbad21d770ccec3bcd4523f13f6d56525ff1c9b748431974ae",
+    "core/src/main/kotlin/shareact/core/input/UrlCanonicalizer.kt": "10a631170b316729ded1c4c47da866fb213b37962aad900355aba818a7799198",
+    "core/src/main/kotlin/shareact/core/model/Domain.kt": "a353b642c4c00b77c51051271d7fa69671b10e31d826953b53f90c9c3ecdac68",
+    "core/src/main/kotlin/shareact/core/model/Limits.kt": "55bc5facfaec5cc2625241b8e2eba08e5ce45d4c893f3e3a9b2d03a432741bb8",
+    "core/src/main/kotlin/shareact/core/model/Ports.kt": "a8eeb3a16b339a9f4f628a5e0e7879ca785a1b0e14ca1d0c826bbcd7b681b24f",
+    "core/src/main/kotlin/shareact/core/model/ValueSerializers.kt": "35eadcd8191718545801fe15ee5e320b4055ad252c3275a004af01e767448e52",
+    "core/src/main/kotlin/shareact/core/request/ConnectionTestDefinition.kt": "e4d3bed22be4dc1ad6c3282d34026ef31570b75fd1b68ec14d13b2a720f68732",
+    "core/src/main/kotlin/shareact/core/request/RequestBuilder.kt": "a6e1c706efcd7faa93ed393d2ca9d9ef1ff4f1b896695c7f24a868cbd279e360",
+    "core/src/main/kotlin/shareact/core/request/RequestValidator.kt": "84b68f0e3e162c541d4c0086d7a87b09653f98cf2097a131d99454e7a7c5628b",
+    "core/src/main/kotlin/shareact/core/rules/OverlapDetector.kt": "fdde414d466ee6371db29d2a1e46ed914efc14d20c39d11fadc759a7fd42e95a",
+    "core/src/main/kotlin/shareact/core/rules/RuleEngine.kt": "771f8b02286322a714a4646d7927c1349038179a9564abd267c28384baaee325",
+    "core/src/main/kotlin/shareact/core/rules/RuleValidator.kt": "0859a0429e79fc100a331a5d788b06028c7f4fb60047fa3e9fe8c8950f021ba0",
+    "core/src/main/kotlin/shareact/core/template/TemplateRenderer.kt": "66c087b0c8e8a00757f5e63ce0633633483e838e5f14e1f6fb11f11d39178959",
+    "core/src/main/kotlin/shareact/core/templates/BuiltInTemplates.kt": "7a1e4b4806598d21f52dd921e036b03e35a26fd486121bca18ac32006f652070",
+    "core/src/main/kotlin/shareact/core/transfer/TransferSchema.kt": "c8ac2f63cb739bbd4710d8e74bc95c86c3166232bb63992470150410d6bb5a31",
+    "gradle/libs.versions.toml": "7b9ead7bf449187cf2515e88d691aa2582e4983c8f166401ef721a9b4f953900"
+  }
+}

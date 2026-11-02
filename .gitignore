@@ -1,0 +1,5 @@
+.cache/
+.local.json
+skills/share-act-config/oracle/.gradle/
+skills/share-act-config/oracle/build/
+dist/
